@@ -2,7 +2,15 @@
 import React from "react";
 import styled from "styled-components";
 
-class MapContent extends Comment{
+class MapContent extends React.Component{
+    resizeMap(){
+        const mapContainer = document.getElementById('myMap');
+        mapContainer.style.width = '650px';
+        mapContainer.style.height = '650px';
+    }
+    relayout(map){
+        map.relayout();
+    }
     componentDidMount(){
         const script = document.createElement("script");
         script.async = true;
@@ -16,13 +24,13 @@ class MapContent extends Comment{
                     level:7
                 };
                 const map = new window.kakao.maps.Map(container, options);
+                this.resizeMap();
+                this.relayout(map);
             });
         };
     }
     render (){
-        return
-            <MapContents id="myMap">
-            </MapContents>;
+        return <MapContents id="myMap">외않되?</MapContents>;
     }
 }
 
