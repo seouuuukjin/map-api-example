@@ -4,8 +4,8 @@ import MapLoadFunc from "./MapLoadFunc";
 
 function App() {
   return (
-    <MapContent/>
-    //<MapLoadFunc />
+    //<MapContent/>
+    <MapLoadFunc />
   );
 }
 
