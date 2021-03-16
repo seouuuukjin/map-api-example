@@ -8,6 +8,7 @@ const MapLoadFunc = () => {
         width: window.innerWidth,
         height: window.innerHeight
     });
+    //resize 이벤트 감지용 임시 함수
     
     useEffect(()=>{
         const container = document.getElementById('myMap');
@@ -17,7 +18,6 @@ const MapLoadFunc = () => {
 		};
         //이 문장이 map 을 띄워준다.
         const map = new kakao.maps.Map(container, options);
-    //resize 이벤트 감지용 임시 함수
         let handleResize = () => {
             let resizeTimer;
             clearTimeout(resizeTimer)
@@ -35,13 +35,16 @@ const MapLoadFunc = () => {
         return () => { // cleanup 
             window.removeEventListener('resize', handleResize);
         }
-    }, [windowSize]);
+    }, []);
 
     return (
-        <div id = 'myMap' style={{
-            width: '500px', 
-            height: '500px'
-        }}> x: {window.width}, y: {window.height}</div>
+        <div id = 'myMap' style={
+            {
+                width: `${window.innerWidth}px`, 
+                height: `${window.innerHeight}px`
+            }
+        }>
+        </div>
     )
 }
 // const myMap = styled.div`
